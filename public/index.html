@@ -1,54 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samtora Studios</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .hero {
-            height: 90vh;
-            background: linear-gradient(135deg, rgb(67, 118, 138) 12%, rgb(30, 52, 61) 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .hero img {
-            max-width: 50%;
-            height: auto;
-        }
-        .games {
-            padding: 20px;
-            text-align: center;
-        }
-        .games h2 {
-            margin-bottom: 20px;
-        }
-        .game-thumbnails {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .game-thumbnails a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .game-thumbnails img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samtora Studios</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .hero {
+      height: 90vh;
+      background: linear-gradient(135deg, rgb(67, 118, 138) 12%, rgb(30, 52, 61) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .hero img {
+      max-width: 50%;
+      height: auto;
+    }
+    .scroll-down {
+      position: absolute;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%);
+      margin: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .scroll-down span {
+      display: inline-block;
+      font-size: 2.5rem;
+      color: #43768a;
+      animation: bounce 3s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(12px); }
+    }
+
+    .about {
+      position: relative;
+      text-align: center;
+      margin: 0;
+      min-height: 250px;
+      font-size: 1.3rem;
+      color: #1e343d;
+      background: rgba(255,255,255,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      padding: 32px 0 24px 0;
+    }
+
+    .coming-soon {
+        position: relative;
+        text-align: center;
+        margin: 0;
+        min-height: 500px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .coming-soon-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 140%;
+        height: 220%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        background: linear-gradient(135deg, rgb(15, 15, 15) 12%, rgb(10, 10, 10) 100%);
+        opacity: 0.95;
+        pointer-events: none;
+    }
+    .coming-soon-highlight {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        font-size: 2.8rem;
+        font-weight: 900;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        background: linear-gradient(135deg, rgb(67, 118, 138) 12%, rgb(30, 52, 61) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0px 0px 8px rgba(255,255,255,0.1));
+        animation: about-text-wobble 12s infinite alternate cubic-bezier(.68,-0.55,.27,1.55);
+        transition: font-size 0.2s;
+        padding: 0.2em 0.6em;
+        border-radius: 1em;
+    }
+    @keyframes about-text-wobble {
+        0% { transform: scale(1) rotate(-2deg);}
+        20% { transform: scale(1.05, 0.95) rotate(2deg);}
+        40% { transform: scale(0.97, 1.03) rotate(-1deg);}
+        60% { transform: scale(1.03, 0.97) rotate(1deg);}
+        80% { transform: scale(0.98, 1.02) rotate(-2deg);}
+        100% { transform: scale(1) rotate(2deg);}
+    }
+
+
+    .games {
+      padding: 20px;
+      text-align: center;
+    }
+    .games h2 {
+      margin-bottom: 20px;
+    }
+    
     </style>
 </head>
 <body>
     <div class="hero">
         <img src="/images/logo-samtora.png" alt="Samtora Studios Logo">
+        <div class="scroll-down">
+            <span>&#8595;</span>
+        </div>
+    </div>
+    <div class="about">
+      Samtora Studios is a creative team that designs, develops, and brings mobile games to life.
+    </div>
+    <div class="coming-soon">
+        <div class="coming-soon-bg"></div>
+        <p>
+          <span class="coming-soon-highlight">COMING SOON</span>
+        </p>
     </div>
     <div class="games">
         <h2>Our Games</h2>
