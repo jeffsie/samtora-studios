@@ -1,12 +1,18 @@
-var http = require('http');
-var port = process.env.PORT || 3000;
-var server = http.createServer(function(req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    var message = 'It works!\nGitHub connection successful.',
-        version = 'NodeJS ' + process.versions.node + '\n',
-        response = [message, version].join('\n');
-    res.end(response);
+const express = require('express');
+const path = require('path');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Route for homepage
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-server.listen(port, () => {
-    console.log('Server running at http://localhost:' + port + '/');
+
+// Start server
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}/`);
 });
