@@ -1,6 +1,8 @@
 ---
 deployment:
   tasks:
-    - export NODE_ENV=production
-    - /opt/cpanel/ea-nodejs10/bin/npm install
-    - /opt/cpanel/ea-nodejs10/bin/npm run start
+    - /home/twelijqr/nodevenv/samtora-studios/22/bin/npm install
+    - /home/twelijqr/nodevenv/samtora-studios/22/bin/npm run start
+
+
+    
