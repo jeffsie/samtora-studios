@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export NODE_ENV=production
+    - /opt/cpanel/ea-nodejs10/bin/npm install
+    - /opt/cpanel/ea-nodejs10/bin/npm run start
